@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  background: gray;
+  text-align: center;
+  align-items: center;
+  background: #2d3236;
+  justify-content: center;
+  flex-direction: column;
 }

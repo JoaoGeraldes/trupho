@@ -1,5 +1,5 @@
 import "./App.css";
-import { Tier } from "./components/Tier";
+import { Tiers } from "./components/Tiers/Tiers";
 
 interface Handlers {
   onClick: null | (() => void);
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <Tier />
+      <Tiers />
     </div>
   );
 }
