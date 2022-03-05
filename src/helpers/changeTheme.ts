@@ -6,7 +6,7 @@ function getValueFromCSSVar(cssVar: string) {
 }
 
 // Create a function for setting a variable value
-function setCSSVarProperty(isDark: boolean) {
+function changeTheme(theme: "dark" | "light") {
   if (!root) return;
 
   // Set the value of variable to another value
@@ -19,7 +19,7 @@ function setCSSVarProperty(isDark: boolean) {
   const lightBg = getValueFromCSSVar("--light-tier-bg");
   const lightFontcolor = getValueFromCSSVar("--light-tier-font-color");
 
-  if (isDark) {
+  if (theme === "dark") {
     root.style.setProperty("--background", appDarkBackground);
     root.style.setProperty("--tier-bg-color", darkBg);
     root.style.setProperty("--tier-font-color", darkFontColor);
@@ -30,4 +30,12 @@ function setCSSVarProperty(isDark: boolean) {
   }
 }
 
-export { setCSSVarProperty };
+function setThemeToLocalStorage(theme: "dark" | "light") {
+  localStorage.setItem("theme", theme);
+}
+
+function getThemeFromLocalStorage() {
+  return localStorage.getItem("theme") as "dark" | "light" | null;
+}
+
+export { changeTheme, getThemeFromLocalStorage, setThemeToLocalStorage };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/tier.css";
 import { Tier } from "./Tier";
 
@@ -20,6 +20,20 @@ interface TiersData {
 
 export function Tiers() {
   const [selectedTier, setSelectedTier] = useState<number | null>(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const animationDelay = setTimeout(() => {
+      if (sectionRef.current) {
+        const sectionElement = sectionRef.current as HTMLElement;
+        sectionElement.classList.add("swing-in-top-fwd");
+      }
+    }, 250);
+
+    return () => {
+      clearTimeout(animationDelay);
+    };
+  }, []);
 
   const mock: TiersData = {
     tiers: [
@@ -50,22 +64,19 @@ export function Tiers() {
   }
 
   return (
-    <>
-      <h2>Tiers</h2>
-      <section className="tier-container swing-in-top-fwd">
-        {mock.tiers.map((tierMetadata, index) => {
-          const isTierSelected = index === selectedTier;
-          return (
-            <Tier
-              key={index}
-              handleSelectedTier={handleSelectedTier}
-              index={index}
-              selected={isTierSelected}
-              {...tierMetadata}
-            ></Tier>
-          );
-        })}
-      </section>
-    </>
+    <section ref={sectionRef} className="tier-container">
+      {mock.tiers.map((tierMetadata, index) => {
+        const isTierSelected = index === selectedTier;
+        return (
+          <Tier
+            key={index}
+            handleSelectedTier={handleSelectedTier}
+            index={index}
+            selected={isTierSelected}
+            {...tierMetadata}
+          ></Tier>
+        );
+      })}
+    </section>
   );
 }
