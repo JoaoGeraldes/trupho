@@ -1,59 +1,18 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Tiers } from "./components/Tiers/Tiers";
-
-interface Handlers {
-  onClick: null | (() => void);
-}
-
-interface Tier {
-  price: number;
-  title: string;
-  subtitle: string;
-}
-
-interface ComponentData {
-  tiers: Tier[];
-  function: "onClick";
-}
-
-const mock: ComponentData = {
-  function: "onClick",
-  tiers: [
-    {
-      price: 100,
-      title: "Individual",
-      subtitle: "Subtitle #1",
-    },
-    {
-      price: 200,
-      title: "Corporations",
-      subtitle: "Subtitle #2",
-    },
-    {
-      price: 300,
-      title: "Organizations",
-      subtitle: "Subtitle #3",
-    },
-  ],
-};
+import { setCSSVarProperty } from "./helpers/changeTheme";
 
 function App() {
-  function click() {
-    console.log("Clicked!");
-  }
+  const [theme, setTheme] = useState(true);
 
-  const handlers: Handlers = {
-    onClick: click,
-  };
-
-  const handleClick = handlers[mock.function];
-
-  if (handleClick) {
-    handleClick();
-  }
+  useEffect(() => {
+    setCSSVarProperty(theme);
+  });
 
   return (
     <div className="App">
+      <button onClick={() => setTheme(!theme)}>Change Theme!</button>
       <Tiers />
     </div>
   );

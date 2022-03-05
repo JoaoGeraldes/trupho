@@ -4,7 +4,7 @@
   display: flex;
   text-align: center;
   align-items: center;
-  background: #2d3236;
+  background: var(--background);
   justify-content: center;
   flex-direction: column;
 }

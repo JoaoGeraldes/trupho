@@ -1,0 +1,14 @@
+:root {
+  --background: linear-gradient(316deg, #3c405a, #090a0f);
+  --tier-bg-color: #d2d5d8;
+  --tier-font-color: black;
+
+  --light-background: linear-gradient(316deg, #ffffff, #ffa615ab);
+  --dark-background: linear-gradient(316deg, #3c405a, #090a0f);
+
+  --dark-tier-bg: #d2d5d8;
+  --dark-tier-font-color: black;
+
+  --light-tier-bg: #34383d;
+  --light-tier-font-color: #ffffff;
+}
