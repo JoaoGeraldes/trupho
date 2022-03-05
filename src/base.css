@@ -12,3 +12,15 @@
   --light-tier-bg: #34383d;
   --light-tier-font-color: #ffffff;
 }
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  background: var(--background);
+  justify-content: center;
+  flex-direction: column;
+  overflow: auto;
+}
