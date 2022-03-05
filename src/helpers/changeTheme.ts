@@ -9,7 +9,6 @@ function getValueFromCSSVar(cssVar: string) {
 function changeTheme(theme: "dark" | "light") {
   if (!root) return;
 
-  // Set the value of variable to another value
   const appDarkBackground = getValueFromCSSVar("--dark-background");
   const appLightBackground = getValueFromCSSVar("--light-background");
 
@@ -19,6 +18,7 @@ function changeTheme(theme: "dark" | "light") {
   const lightBg = getValueFromCSSVar("--light-tier-bg");
   const lightFontcolor = getValueFromCSSVar("--light-tier-font-color");
 
+  // Set the values of css vars to another value
   if (theme === "dark") {
     root.style.setProperty("--background", appDarkBackground);
     root.style.setProperty("--tier-bg-color", darkBg);

@@ -19,7 +19,7 @@ export function ThemeToggle() {
   }, [theme]);
 
   return (
-    <div className="toggle-container">
+    <section data-testid="toggle-container" className="toggle-container">
       <label className="switch">
         <input
           defaultChecked={getThemeFromLocalStorage() === "dark" && true}
@@ -29,6 +29,6 @@ export function ThemeToggle() {
         />
         <span className="slider round"></span>
       </label>
-    </div>
+    </section>
   );
 }

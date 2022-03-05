@@ -64,7 +64,11 @@ export function Tiers() {
   }
 
   return (
-    <section ref={sectionRef} className="tier-container">
+    <section
+      data-testid="section-tiers-container"
+      ref={sectionRef}
+      className="tier-container"
+    >
       {mock.tiers.map((tierMetadata, index) => {
         const isTierSelected = index === selectedTier;
         return (
