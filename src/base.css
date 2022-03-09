@@ -17,10 +17,10 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow: auto;
   text-align: center;
   align-items: center;
-  background: var(--background);
-  justify-content: center;
   flex-direction: column;
-  overflow: auto;
+  justify-content: center;
+  background: var(--background);
 }
