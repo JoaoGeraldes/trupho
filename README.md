@@ -4,14 +4,14 @@
 
 Launches the test runner in the interactive watch mode.
 
-### `yarn start`
-
-Starts the React app (frontend)
-
 ### `yarn start-server`
 
 Starts the server API (backend)
 (Use another terminal instance)
+
+### `yarn start`
+
+Starts the React app (frontend)
 
 ## Some notes about this demo
 
