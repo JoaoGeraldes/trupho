@@ -1,5 +1,6 @@
 import { TierProps } from "./Tiers";
 import "../../fx.css";
+import { TierButton } from "../Buttons/TierButton";
 
 const selectedStyle = {
   button: {
@@ -26,12 +27,10 @@ export function Tier(props: TierProps) {
       </section>
       <footer>
         <hr />
-        <button
-          style={selected ? selectedStyle.button : {}}
-          onClick={() => handleSelectedTier(index)}
-        >
-          {selected ? "Selected ✔" : "Select"}
-        </button>
+        <TierButton
+          selected={selected}
+          clickHandler={() => handleSelectedTier(index)}
+        />
       </footer>
     </section>
   );
