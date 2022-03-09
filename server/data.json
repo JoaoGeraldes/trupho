@@ -1,0 +1,19 @@
+{
+    "tiers": [
+        {
+            "price": 100,
+            "title": "Individual",
+            "subtitle": "Subtitle #1"
+        },
+        {
+            "price": 200,
+            "title": "Corporations",
+            "subtitle": "Subtitle #2"
+        },
+        {
+            "price": 300,
+            "title": "Organizations",
+            "subtitle": "Subtitle #3"
+        }
+    ]
+}
