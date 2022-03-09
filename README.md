@@ -9,6 +9,10 @@ Launches the test runner in the interactive watch mode.
 Starts the server API (backend)
 (Use another terminal instance)
 
+### `yarn install`
+
+To install dependencies.
+
 ### `yarn start`
 
 Starts the React app (frontend)
