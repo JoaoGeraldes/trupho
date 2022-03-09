@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Loader } from "../Loader/Loader";
 import "./styles/tier.css";
 import { Tier } from "./Tier";
 
@@ -21,7 +22,19 @@ interface TiersData {
 export function Tiers() {
   const [selectedTier, setSelectedTier] = useState<number | null>(null);
   const sectionRef = useRef(null);
+  const [fetchedData, setTiersList] = useState<null | TiersData>(null);
 
+  // Get Tiers data
+  useEffect(() => {
+    // Mimic some server delay
+    setTimeout(() => {
+      fetch(process.env.REACT_APP_API_URI as string)
+        .then((response) => response.json())
+        .then((result) => setTiersList(result));
+    }, 1000);
+  }, []);
+
+  // Set FX
   useEffect(() => {
     const animationDelay = setTimeout(() => {
       if (sectionRef.current) {
@@ -35,26 +48,6 @@ export function Tiers() {
     };
   }, []);
 
-  const mock: TiersData = {
-    tiers: [
-      {
-        price: 100,
-        title: "Individual",
-        subtitle: "Subtitle #1",
-      },
-      {
-        price: 200,
-        title: "Corporations",
-        subtitle: "Subtitle #2",
-      },
-      {
-        price: 300,
-        title: "Organizations",
-        subtitle: "Subtitle #3",
-      },
-    ],
-  };
-
   function handleSelectedTier(index: number) {
     if (index === selectedTier) {
       setSelectedTier(null);
@@ -63,13 +56,21 @@ export function Tiers() {
     }
   }
 
+  if (!fetchedData || fetchedData.tiers.length < 1) {
+    return (
+      <section data-testid="section-tiers-container" className="tier-container">
+        <Loader />
+      </section>
+    );
+  }
+
   return (
     <section
       data-testid="section-tiers-container"
       ref={sectionRef}
       className="tier-container"
     >
-      {mock.tiers.map((tierMetadata, index) => {
+      {fetchedData.tiers.map((tierMetadata, index) => {
         const isTierSelected = index === selectedTier;
         return (
           <Tier
